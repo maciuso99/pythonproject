@@ -157,10 +157,14 @@ def packopen():
         fraworthness()
 
         time.sleep(0.5)
+
         morepack()
 
     elif question1 == 'yes' and p.balance <= 10_000:
-        print('Sorry you have no coins!!!')
+        print('Sorry you have not enough coins!!!')
+        screen()
+        return p.balance, p.club
+
     else:
         screen()
 
@@ -173,12 +177,9 @@ def morepack():
             buy_pack()
             packopen()
         else:
+            print('Sorry you have not enough coins!!!')
             screen()
-
-
-
-
-
+            return p.balance, p.club
 
 
 
@@ -201,8 +202,7 @@ def screen():
             screen()
         case '3':
             print("Your club: \n")
-            for i in p.club:
-                print(i)
+            print(p.club)
             screen()
         case '4':
             print("It was nice to see you")
@@ -224,8 +224,14 @@ def calculate(value, id):
             p.club.append(id)
             return p.club
         
-def sell_all():
-     pass
+def club_manage(club, balance, drop, id):
+    choice = input("Press: \n1. to sell everything \n2. to go back to the menu" )
+    if choice == "1":
+        club.clear()
+
+    elif choice == "2":
+        screen()
+        return balance, club
 
 
 

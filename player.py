@@ -1,3 +1,4 @@
 
 balance = 50_000
-club = []
+club = list()
+
